@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     let gridLayout = [
-        GridItem(.adaptive((minimum: 80, maximum: 100)))
+        GridItem(.adaptive(minimum: 80, maximum: 100))
     ]
     
     var pics: [String] = ["bible", "manuscript", "painted_bible", "study"]
