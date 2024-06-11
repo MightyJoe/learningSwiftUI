@@ -31,16 +31,16 @@ struct SpecialTitle: View {
 }
 
 struct TopicImage: View {
-    var pic: ImageResource
+    var pic: String
     var body: some View {
         ZStack{
             
-            Image(.study)
+            Image(pic)
                 .resizable()
                 .frame( width: 120, height: 80)
                 .clipShape(.capsule)
                 .blur(radius: /*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
-            Image(.study)
+            Image(pic)
                 .resizable()
                 .frame( width: 110, height: 70)
                 .clipShape(.capsule)
@@ -49,8 +49,23 @@ struct TopicImage: View {
     }
 }
 
+struct CustomText: View {
+    let text: String
+
+    var body: some View
+    {
+        Text(text)
+    }
+    
+    init(_ passedIn: String)
+    {
+        print("Creating a new custom text")
+        self.text = passedIn
+    }
+}
+
 struct ContentView: View {
-    var pics: [ImageResource] = [.bible, .latin, .manuscript, .paintedBible, .study]
+    var pics: [String] = ["bible", "manuscript", "painted_bible", "study"]
     var body: some View {
         ZStack 
         {
@@ -62,12 +77,28 @@ struct ContentView: View {
             VStack
             {
                 SpecialTitle(titleText: "Bible Study")
-                ScrollView
+                ScrollView 
                 {
-                    ForEach (0..<5) { index in
-                        TopicImage(pic: pics[index])
-                    }.padding()
+                    LazyVStack(spacing: 10)
+                    {
+                        ForEach(0..<100) 
+                        {
+                            CustomText("item \($0)")
+                                .font(.title)
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .scrollIndicators(.visible)
                 }
+//                ScrollView
+//                {
+//                    VStack
+//                    {
+//                        ForEach (0..<5) { index in
+//                            TopicImage(pic: pics[index])
+//                        }.padding()
+//                    }.frame(maxWidth: .infinity)
+//                }
             }
         }
     }
