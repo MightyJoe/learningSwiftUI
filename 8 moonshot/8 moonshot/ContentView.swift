@@ -67,40 +67,13 @@ struct CustomText: View {
 struct ContentView: View {
     var pics: [String] = ["bible", "manuscript", "painted_bible", "study"]
     var body: some View {
-        ZStack 
-        {
-            //BACKGROUND
-            Image(.bible)
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-            VStack
-            {
-                SpecialTitle(titleText: "Bible Study")
-                ScrollView 
-                {
-                    LazyVStack(spacing: 10)
-                    {
-                        ForEach(0..<100) 
-                        {
-                            CustomText("item \($0)")
-                                .font(.title)
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                    .scrollIndicators(.visible)
+        NavigationStack{
+            List(0..<100) { row in
+                NavigationLink("Row \(row)"){
+                    Text("Detail \(row)")
                 }
-//                ScrollView
-//                {
-//                    VStack
-//                    {
-//                        ForEach (0..<5) { index in
-//                            TopicImage(pic: pics[index])
-//                        }.padding()
-//                    }.frame(maxWidth: .infinity)
-//                }
             }
-        }
+        }.navigationTitle("RowExample")
     }
 }
 
