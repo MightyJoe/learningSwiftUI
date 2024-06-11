@@ -7,26 +7,16 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    
-    let gridLayout = [
-        GridItem(.adaptive(minimum: 80, maximum: 100))
-    ]
-    
-    var pics: [String] = ["bible", "manuscript", "painted_bible", "study"]
-    var body: some View {
-        ScrollView {
-            LazyVGrid( columns: gridLayout)
-            {
-                ForEach(0..<1000)
-                {
-                    Text("Item \($0)")
-                }
-            }
-        }
+struct ContentView: View 
+{
+    let astronauts = Bundle.main.decode("astronauts.json")
+    var body: some View
+    {
+        Text("Json entry count: \(astronauts.count)")
     }
 }
 
-#Preview {
+#Preview 
+{
     ContentView()
 }
