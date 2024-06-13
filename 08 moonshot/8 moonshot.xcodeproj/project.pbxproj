@@ -17,6 +17,7 @@
 		098A44192C121D9A0002F913 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 098A44182C121D9A0002F913 /* Assets.xcassets */; };
 		098A441C2C121D9A0002F913 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 098A441B2C121D9A0002F913 /* Preview Assets.xcassets */; };
 		09BEF1F22C1B49E3006D17B6 /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEF1F12C1B49E3006D17B6 /* Color-Theme.swift */; };
+		09BEF1F42C1B4DD7006D17B6 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEF1F32C1B4DD7006D17B6 /* MissionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		098A44182C121D9A0002F913 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		098A441B2C121D9A0002F913 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		09BEF1F12C1B49E3006D17B6 /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
+		09BEF1F32C1B4DD7006D17B6 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 		098A44082C121D990002F913 = {
 			isa = PBXGroup;
 			children = (
+				09BEF1F32C1B4DD7006D17B6 /* MissionView.swift */,
 				09BEF1F12C1B49E3006D17B6 /* Color-Theme.swift */,
 				091739972C19055F00785F48 /* Mission.swift */,
 				098A44132C121D990002F913 /* 8 moonshot */,
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09BEF1F42C1B4DD7006D17B6 /* MissionView.swift in Sources */,
 				091739942C18FDF600785F48 /* astronaut.swift in Sources */,
 				09BEF1F22C1B49E3006D17B6 /* Color-Theme.swift in Sources */,
 				098A44172C121D990002F913 /* ContentView.swift in Sources */,

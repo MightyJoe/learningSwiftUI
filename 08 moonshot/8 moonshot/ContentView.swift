@@ -18,7 +18,7 @@ struct ContentView: View
     
     var body: some View
     {
-        NavigationStack 
+        NavigationStack //Allows the use of NavigationLink
         {
             ScrollView 
             {
@@ -26,7 +26,7 @@ struct ContentView: View
                 {
                     ForEach(missions) { mission in
                         NavigationLink {
-                            Text("Detail View")
+                            MissionView(mission: mission)
                         } label: {
                             VStack 
                             {
