@@ -9,6 +9,7 @@ import Foundation
 
 extension Bundle 
 {
+    ///JSON decoding with a pre-defined date format.
     func decode<T: Codable>(_ file: String) -> T
     {
         guard let url = self.url(forResource: file, withExtension: nil) else
