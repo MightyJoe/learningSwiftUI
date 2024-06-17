@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MissionView: View {
     
-    struct CrewMember {
+    public struct CrewMember {
         let role: String
         let astronaut: Astronaut
     }
@@ -27,10 +27,7 @@ struct MissionView: View {
                     .containerRelativeFrame(.horizontal) { width, axis in
                         width * 0.6
                     }
-                
-                
-                
-                
+
                 //Mission Description
                 VStack(alignment: .leading) {
                     Rectangle()
@@ -41,6 +38,10 @@ struct MissionView: View {
                     Text("Mission Highlights")
                         .font(.title.bold())
                         .padding(.bottom, 5)
+                    HStack {
+                        Text("Launch Date: ")
+                        Text(mission.launchDate?.formatted() ?? "Not Launched")
+                    }
                     Text(mission.description)
                     
                     Rectangle()
@@ -57,36 +58,8 @@ struct MissionView: View {
             }
             .padding(.bottom)
             
-            //Astronauts
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(crew, id: \.role) { crewMember in
-                        NavigationLink {
-                            AstronautView(astronaut: crewMember.astronaut)
-                        } label: {
-                            HStack {
-                                Image(crewMember.astronaut.id)
-                                    .resizable()
-                                    .frame(width: 104, height: 72)
-                                    .clipShape(.capsule)
-                                    .overlay(
-                                        Capsule()
-                                            .strokeBorder(.white, lineWidth: 1)
-                                    )
-                                VStack(alignment: .leading) {
-                                    
-                                    Text(crewMember.astronaut.name)
-                                        .foregroundStyle(.white)
-                                        .font(.headline)
-                                    Text(crewMember.role)
-                                        .foregroundStyle(.white.opacity(0.6))
-                                }
-                            }
-                            .padding(.horizontal)
-                        }
-                    }
-                }
-            }
+            CrewView(crew: crew)
+            
         }
         .navigationTitle(mission.displayName)
         .navigationBarTitleDisplayMode(.inline)
