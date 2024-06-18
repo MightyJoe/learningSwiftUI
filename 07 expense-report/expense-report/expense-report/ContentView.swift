@@ -45,11 +45,20 @@ struct ContentView: View
     
     var body: some View
     {
-        
         NavigationStack
         {
             List{
-                Section("Personal"){
+                Section("") {
+                    NavigationLink{
+                        AddView(expenses: expenses)
+                    } label: {
+                        Button("Add Expense", systemImage: "plus")
+                        {
+                        }//button
+                    }
+                }
+                Section("Personal")
+                {
                     ForEach(expenses.items, id: \.id)
                     { item in
                         if(item.type == "Personal")
@@ -101,17 +110,7 @@ struct ContentView: View
                 }
             }//List
             .navigationTitle("Expense Report")
-            .toolbar
-            {
-                Button("Add Expense", systemImage: "plus")
-                {
-                    showingAddExpense = true
-                }//button
-                .sheet(isPresented: $showingAddExpense) 
-                {
-                    AddView(expenses: expenses)
-                }//sheet
-            }//toolbar
+            
         }//navstack
     }//some View
     func removeItems(at offsets: IndexSet)
