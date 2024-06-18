@@ -9,18 +9,29 @@ import SwiftUI
 
 struct ContentView: View 
 {
+    @State private var gridView = true
     var body: some View
     {
-        NavigationStack
-        {
-            ScrollView
-            {
-                MissionsGridView()
-            }.navigationTitle("Moonshot")
-                .background(.darkBackground)
-                .preferredColorScheme(.dark)
-        }
+        NavigationStack {
+            VStack{
+                if(gridView)
+                {
+                    MissionsGridView()
+                }
+                else
+                {
+                    MissionListView()
+                }
+            }
+            .toolbar{
+                Button("Switch View")
+                {
+                    gridView.toggle()
+                }
+            }
+        }.preferredColorScheme(.dark)
     }//body
+    
 }//ContentView
 
 #Preview 
