@@ -13,6 +13,7 @@
 		091739962C18FE4300785F48 /* jsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091739952C18FE4300785F48 /* jsonDecoder.swift */; };
 		091739982C19055F00785F48 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091739972C19055F00785F48 /* Mission.swift */; };
 		0921903A2C21D7E2007CDFDB /* MissionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092190392C21D7E2007CDFDB /* MissionListView.swift */; };
+		093A347C2C23403700EB9154 /* MissionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093A347B2C23403700EB9154 /* MissionCardView.swift */; };
 		098A44152C121D990002F913 /* __moonshotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A44142C121D990002F913 /* __moonshotApp.swift */; };
 		098A44172C121D990002F913 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A44162C121D990002F913 /* ContentView.swift */; };
 		098A44192C121D9A0002F913 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 098A44182C121D9A0002F913 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		091739952C18FE4300785F48 /* jsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonDecoder.swift; sourceTree = "<group>"; };
 		091739972C19055F00785F48 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		092190392C21D7E2007CDFDB /* MissionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionListView.swift; sourceTree = "<group>"; };
+		093A347B2C23403700EB9154 /* MissionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCardView.swift; sourceTree = "<group>"; };
 		098A44112C121D990002F913 /* 8 moonshot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "8 moonshot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		098A44142C121D990002F913 /* __moonshotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = __moonshotApp.swift; sourceTree = "<group>"; };
 		098A44162C121D990002F913 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				098A44162C121D990002F913 /* ContentView.swift */,
 				09BEF1F32C1B4DD7006D17B6 /* MissionView.swift */,
 				09D38B402C20F3DE00135053 /* MissionsGridView.swift */,
+				093A347B2C23403700EB9154 /* MissionCardView.swift */,
 				092190392C21D7E2007CDFDB /* MissionListView.swift */,
 			);
 			path = views;
@@ -207,6 +210,7 @@
 				09BEF1F22C1B49E3006D17B6 /* Color-Theme.swift in Sources */,
 				098A44172C121D990002F913 /* ContentView.swift in Sources */,
 				098A44152C121D990002F913 /* __moonshotApp.swift in Sources */,
+				093A347C2C23403700EB9154 /* MissionCardView.swift in Sources */,
 				091739982C19055F00785F48 /* Mission.swift in Sources */,
 				0921903A2C21D7E2007CDFDB /* MissionListView.swift in Sources */,
 				09D38B412C20F3DE00135053 /* MissionsGridView.swift in Sources */,

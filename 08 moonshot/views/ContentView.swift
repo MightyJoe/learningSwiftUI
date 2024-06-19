@@ -10,9 +10,10 @@ import SwiftUI
 struct ContentView: View 
 {
     @State private var gridView = true
+    @State private var path = NavigationPath()
     var body: some View
     {
-        NavigationStack {
+        NavigationStack(path: $path) {
             VStack{
                 if(gridView)
                 {

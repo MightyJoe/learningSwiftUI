@@ -39,10 +39,10 @@ struct MissionListView: View {
                                     VStack {
                                         Spacer()
                                         Text(mission.displayName)
-                                            .font(.headline)
+                                            .font(.title)
                                             .foregroundStyle(.white)
                                         Text(mission.formattedLaunchDate)
-                                            .font(.caption)
+                                            .font(.headline)
                                             .foregroundStyle(.white.opacity(0.7))
                                         Spacer()
                                     }
@@ -54,6 +54,8 @@ struct MissionListView: View {
                                     
                                     Spacer()
                                 }
+                                .background(.lightBackground)
+                                .cornerRadius(15)
                             }
                         }
                         .navigationTitle("Moonshot")

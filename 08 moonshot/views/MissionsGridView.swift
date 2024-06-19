@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct MissionsGridView: View {
+struct MissionsGridView: View 
+{
     
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
@@ -15,7 +16,7 @@ struct MissionsGridView: View {
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
-    
+        
     var body: some View {
 
         ScrollView
@@ -23,46 +24,27 @@ struct MissionsGridView: View {
             LazyVGrid(columns: columns)
             {
                 ForEach(missions) { mission in
-                    NavigationLink {
-                        MissionView(mission: mission, astronauts: astronauts)
-                    } label: {
-                        VStack
-                        {
-                            Image(mission.image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100, height: 100)
-                                .padding()
-                            VStack {
-                                Text(mission.displayName)
-                                    .font(.headline)
-                                    .foregroundStyle(.white)
-                                Text(mission.formattedLaunchDate)
-                                    .font(.caption)
-                                    .foregroundStyle(.white.opacity(0.7))
-                            }
-                            .padding(.vertical)
-                            .frame(maxWidth: .infinity)
-                            .background(.lightBackground)
-                        }
-                        .clipShape(.rect(cornerRadius: 10))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.lightBackground)
-                        )
+                    NavigationLink(value: mission)
+                    {
+                        MissionCardView(mission: mission)
                     }
                 }
+                
             }.padding([.horizontal, .bottom])
         }
         .background(.darkBackground)
         .navigationTitle("Moonshot")
-
-   }
+        .navigationDestination(for: Mission.self){ mission in
+            MissionView(mission: mission, astronauts: astronauts)
+        }
+    }
 }
 
 #Preview {
-    NavigationStack 
+    @State var myPath = NavigationPath()
+   return NavigationStack(path: $myPath)
     {
         MissionsGridView()
     }.preferredColorScheme(.dark)
+    
 }
