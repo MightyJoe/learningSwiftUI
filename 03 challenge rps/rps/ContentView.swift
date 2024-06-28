@@ -32,8 +32,8 @@ struct LevelOneBackground: View{
     var body: some View{
         ZStack{
             VStack(spacing: 0){
-                LinearGradient(colors: [.black, .orange], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
-                LinearGradient(colors: [.orange, .white], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+                LinearGradient(colors: [.blue, .blue], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+                LinearGradient(colors: [.blue, .white], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
                 LinearGradient(colors: [.white, .blue], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
                 LinearGradient(colors: [.blue, .green], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
                 LinearGradient(colors: [.green, .green], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
