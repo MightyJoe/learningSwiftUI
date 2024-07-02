@@ -23,11 +23,25 @@ struct ContentView: View {
     {
         List(results, id: \.trackId) 
         { item in
-            VStack(alignment: .leading)
-            {
-                Text(item.trackName)
-                    .font(.headline)
-                Text(item.collectionName)
+            HStack {
+                AsyncImage(url: URL(string: "https://hws.dev/img/logo.png"))
+                { phase in
+                    if let image = phase.image {
+                        image
+                            .resizable()
+                            .scaledToFit()
+                    } else if phase.error != nil {
+                        Text("Error Loading Image")
+                    } else {
+                        ProgressView()
+                    }
+                }.frame(width: 50, height: 50)
+                VStack(alignment: .leading)
+                {
+                    Text(item.trackName)
+                        .font(.headline)
+                    Text(item.collectionName)
+                }
             }
         }.task {
             await loadData()
@@ -36,7 +50,7 @@ struct ContentView: View {
     
     func loadData() async 
     {
-        guard let url = URL(string: "https://itunes.apple.com/search?term=weird+al&entity=song") 
+        guard let url = URL(string: "https://itunes.apple.com/search?term=weird+al&entity=song")
         else
         {
             print("invalid url")
