@@ -19,33 +19,61 @@ struct Result: Codable {
 
 struct ContentView: View {
     @State private var results = [Result]()
-    var body: some View 
+    @State private var username = ""
+    @State private var email = ""
+    
+    var disableForm: Bool {
+        return username.count < 2 ||
+                email.count < 3 ||
+                !email.contains("@")
+    }
+    
+    var body: some View
     {
-        List(results, id: \.trackId) 
-        { item in
-            HStack {
-                AsyncImage(url: URL(string: "https://hws.dev/img/logo.png"))
-                { phase in
-                    if let image = phase.image {
-                        image
-                            .resizable()
-                            .scaledToFit()
-                    } else if phase.error != nil {
-                        Text("Error Loading Image")
-                    } else {
-                        ProgressView()
+        VStack 
+        {
+            Form
+            {
+                Section {
+                    TextField("Username", text: $username)
+                    TextField("Email", text: $email)
+                }
+                Section {
+                    Button("Create account") {
+                        print("Creating account...")
+                    } .disabled(disableForm)
+                }
+            }.frame(height: 250)
+            .background()
+            .cornerRadius(10.0)
+                
+            List(results, id: \.trackId)
+            { item in
+                HStack {
+                    AsyncImage(url: URL(string: "https://hws.dev/img/logo.png"))
+                    { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .scaledToFit()
+                        } else if phase.error != nil {
+                            Text("Error Loading Image")
+                        } else {
+                            ProgressView()
+                        }
+                    }.frame(width: 50, height: 50)
+                    VStack(alignment: .leading)
+                    {
+                        Text(item.trackName)
+                            .font(.headline)
+                        Text(item.collectionName)
                     }
-                }.frame(width: 50, height: 50)
-                VStack(alignment: .leading)
-                {
-                    Text(item.trackName)
-                        .font(.headline)
-                    Text(item.collectionName)
                 }
             }
-        }.task {
-            await loadData()
-        }
+            .task {
+                await loadData()
+            }
+        }.background(.gray)
     }
     
     func loadData() async 
