@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+@Observable
+class User: Codable {
+    
+    //Provide SwiftUI with a remapping enum so that it encodes JSON correctly.
+    enum CodingKeys: String, CodingKey {
+        case _name = "name"
+    }
+    
+    //will be _name when encoded to JSON, so see CodingKeys for what it resolves to.
+    var name = "Weird Al"
+}
+
 struct Response: Codable {
     var results: [Result]
 }
@@ -21,6 +33,7 @@ struct ContentView: View {
     @State private var results = [Result]()
     @State private var username = ""
     @State private var email = ""
+    @State private var hapticNow = false
     
     var disableForm: Bool {
         return username.count < 2 ||
@@ -43,7 +56,12 @@ struct ContentView: View {
                         print("Creating account...")
                     } .disabled(disableForm)
                 }
-            }.frame(height: 250)
+                Section {
+                    Button("Encode Al", action: encodeAl)
+                        .sensoryFeedback(.success, trigger: hapticNow)
+                    
+                }
+            }.frame(height: 300)
             .background()
             .cornerRadius(10.0)
                 
@@ -76,7 +94,14 @@ struct ContentView: View {
         }.background(.gray)
     }
     
-    func loadData() async 
+    func encodeAl() {
+        let data = try! JSONEncoder().encode(User())
+        let str = String(decoding: data, as: UTF8.self)
+        print(str)
+        hapticNow.toggle()
+    }
+    
+    func loadData() async
     {
         guard let url = URL(string: "https://itunes.apple.com/search?term=weird+al&entity=song")
         else
