@@ -11,7 +11,7 @@ import SwiftUI
 struct P10_Cupcake_CornerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

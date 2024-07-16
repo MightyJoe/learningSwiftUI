@@ -29,7 +29,7 @@ struct Result: Codable {
     var collectionName: String
 }
 
-struct ContentView: View {
+struct ExampleCode: View {
     @State private var results = [Result]()
     @State private var username = ""
     @State private var email = ""
@@ -125,5 +125,5 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView()
+    ExampleCode()
 }
