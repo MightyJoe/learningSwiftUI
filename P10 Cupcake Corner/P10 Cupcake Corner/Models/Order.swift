@@ -41,11 +41,16 @@ class Order: Codable {
     var zip = ""
     
     var hasValidAddress: Bool {
-        if (name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty)
+        if(trim(name).isEmpty || trim(streetAddress).isEmpty || trim(city).isEmpty || trim(zip).isEmpty)
         {
             return false
         }
+        
         return true
+    }
+    
+    func trim(_ input: String) -> String {
+        return input.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     
