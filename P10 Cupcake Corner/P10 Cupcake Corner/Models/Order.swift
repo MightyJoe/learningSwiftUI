@@ -12,11 +12,11 @@ class Order: Codable {
     enum CodingKeys: String, CodingKey {
         case _type = "type"
         case _quantity = "quantity"
-        case _specialRequestEnabled = "specialRequestEnabled"
         case _name = "name"
         case _streetAddress = "streetAddress"
         case _city = "city"
         case _zip = "zip"
+        case _specialRequestEnabled = "specialRequestEnabled"
     }
     
     static let types = ["Vanilla", "Strawberry", "Chocolate"]
@@ -24,6 +24,33 @@ class Order: Codable {
     var type = 0
     var quantity = 3
     
+    var name = UserDefaults.standard.string(forKey: "name") ?? "" 
+    {
+        didSet {
+            UserDefaults.standard.set(name, forKey: "name")
+        }
+    }
+    var streetAddress = UserDefaults.standard.string(forKey: "streetAddress") ?? ""
+    {
+        didSet {
+            UserDefaults.standard.set(streetAddress, forKey: "streetAddress")
+        }
+    }
+    var city = UserDefaults.standard.string(forKey: "city") ?? ""
+    {
+        didSet {
+            UserDefaults.standard.set(city, forKey: "city")
+        }
+    }
+    var zip = UserDefaults.standard.string(forKey: "zip") ?? ""
+    {
+        didSet {
+            UserDefaults.standard.set(zip, forKey: "zip")
+        }
+    }
+    
+    var extraFrosting = false
+    var addSprinkles = false
     var specialRequestEnabled = false {
         didSet {
             if (specialRequestEnabled == false) {
@@ -32,13 +59,6 @@ class Order: Codable {
             }
         }
     }
-    var extraFrosting = false
-    var addSprinkles = false
-    
-    var name = ""
-    var streetAddress = ""
-    var city = ""
-    var zip = ""
     
     var hasValidAddress: Bool {
         if(trim(name).isEmpty || trim(streetAddress).isEmpty || trim(city).isEmpty || trim(zip).isEmpty)
