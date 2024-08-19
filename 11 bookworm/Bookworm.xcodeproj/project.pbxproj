@@ -13,6 +13,7 @@
 		09AE220D2C52E4AD000F4F5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09AE220C2C52E4AD000F4F5E /* Assets.xcassets */; };
 		09AE22102C52E4AD000F4F5E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09AE220F2C52E4AD000F4F5E /* Preview Assets.xcassets */; };
 		09C9F6092C6E52C10004F3B4 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C9F6082C6E52C10004F3B4 /* AddBookView.swift */; };
+		09FE6A002C73A2FD003D307E /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE69FF2C73A2FD003D307E /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		09AE220C2C52E4AD000F4F5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09AE220F2C52E4AD000F4F5E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		09C9F6082C6E52C10004F3B4 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
+		09FE69FF2C73A2FD003D307E /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +57,11 @@
 		09AE22072C52E4AC000F4F5E /* Bookworm */ = {
 			isa = PBXGroup;
 			children = (
-				09AE22082C52E4AC000F4F5E /* BookwormApp.swift */,
 				09C9F6082C6E52C10004F3B4 /* AddBookView.swift */,
-				09AE220A2C52E4AC000F4F5E /* ContentView.swift */,
 				0988F5F42C6D516300246ED2 /* Book.swift */,
+				09AE22082C52E4AC000F4F5E /* BookwormApp.swift */,
+				09AE220A2C52E4AC000F4F5E /* ContentView.swift */,
+				09FE69FF2C73A2FD003D307E /* RatingView.swift */,
 				09AE220C2C52E4AD000F4F5E /* Assets.xcassets */,
 				09AE220E2C52E4AD000F4F5E /* Preview Content */,
 			);
@@ -146,6 +149,7 @@
 				09AE220B2C52E4AC000F4F5E /* ContentView.swift in Sources */,
 				09AE22092C52E4AC000F4F5E /* BookwormApp.swift in Sources */,
 				0988F5F52C6D516300246ED2 /* Book.swift in Sources */,
+				09FE6A002C73A2FD003D307E /* RatingView.swift in Sources */,
 				09C9F6092C6E52C10004F3B4 /* AddBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
